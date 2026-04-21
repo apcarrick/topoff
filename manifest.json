@@ -26,6 +26,17 @@
     "default_title": "Topoff — Fill the fields autofill misses"
   },
 
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "topoff@alexcarrick.github.io",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["none"],
+        "optional": []
+      }
+    }
+  },
+
   "content_security_policy": "script-src 'self'; object-src 'self'",
 
   "permissions": [
