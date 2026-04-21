@@ -1,0 +1,71 @@
+{
+  "manifest_version": 2,
+  "name": "Topoff",
+  "version": "1.0.0",
+  "description": "Topoff fills the job application fields that standard autofill always skips — LinkedIn, GitHub, portfolio, work authorization, salary, disability status, veteran status, and more. Your data never leaves your browser.",
+  "author": "Alex Carrick",
+  "homepage_url": "https://github.com/alexcarrick/topoff",
+
+  "icons": {
+    "16":  "icons/icon16.png",
+    "32":  "icons/icon32.png",
+    "48":  "icons/icon48.png",
+    "96":  "icons/icon96.png",
+    "128": "icons/icon128.png"
+  },
+
+  "browser_action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16":  "icons/icon16.png",
+      "32":  "icons/icon32.png",
+      "48":  "icons/icon48.png",
+      "96":  "icons/icon96.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Topoff — Fill the fields autofill misses"
+  },
+
+  "content_security_policy": "script-src 'self'; object-src 'self'",
+
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.greenhouse.io/*",
+        "*://*.lever.co/*",
+        "*://*.workday.com/*",
+        "*://*.myworkdayjobs.com/*",
+        "*://*.icims.com/*",
+        "*://*.taleo.net/*",
+        "*://*.smartrecruiters.com/*",
+        "*://*.jobvite.com/*",
+        "*://*.brassring.com/*",
+        "*://*.successfactors.com/*",
+        "*://*.linkedin.com/*",
+        "*://*.indeed.com/*",
+        "*://*.glassdoor.com/*",
+        "*://*.ziprecruiter.com/*",
+        "*://*.wellfound.com/*",
+        "*://*.ashbyhq.com/*",
+        "*://*.rippling.com/*",
+        "*://*.dover.com/*",
+        "*://*.applytojob.com/*",
+        "*://*.jobs.com/*",
+        "*://*.careers-page.com/*",
+        "*://*.bamboohr.com/*",
+        "*://*.paylocity.com/*",
+        "*://*.paycom.com/*",
+        "*://*.adp.com/*",
+        "*://*.ultipro.com/*",
+        "*://*.recruitingbypaycor.com/*"
+      ],
+      "js": ["content/content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

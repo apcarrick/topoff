@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Topoff</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo">
+      <img src="../icons/icon48.png" class="logo-icon" alt="Topoff" />
+      <span class="logo-text">Topoff</span>
+    </div>
+    <p class="tagline">Top off your job applications.</p>
+  </div>
+
+  <div class="status-bar" id="statusBar">
+    <span id="statusText">Open a job application to detect fields.</span>
+  </div>
+
+  <div class="field-list" id="fieldList"></div>
+
+  <div class="action-row" id="actionRow" style="display:none">
+    <button class="btn-secondary" id="injectBtn">⛽ Refresh Badges</button>
+    <button class="btn-primary"   id="fillAllBtn">Fill All</button>
+  </div>
+
+  <div class="divider">Your Profile</div>
+
+  <form id="profileForm">
+
+    <div class="section-label">Job Seeker Info</div>
+
+    <div class="field-group">
+      <label for="linkedin">LinkedIn URL</label>
+      <input type="url" id="linkedin" name="linkedin"
+             placeholder="https://linkedin.com/in/yourname" />
+    </div>
+
+    <div class="field-group">
+      <label for="github">GitHub URL</label>
+      <input type="url" id="github" name="github"
+             placeholder="https://github.com/yourname" />
+    </div>
+
+    <div class="field-group">
+      <label for="portfolio">Portfolio / Website</label>
+      <input type="url" id="portfolio" name="portfolio"
+             placeholder="https://yoursite.com" />
+    </div>
+
+    <div class="field-group">
+      <label for="workAuth">Work Authorization</label>
+      <input type="text" id="workAuth" name="workAuth"
+             placeholder="e.g. US Citizen, H1B, Require Sponsorship" />
+    </div>
+
+    <div class="field-group">
+      <label for="salary">Desired Salary</label>
+      <input type="text" id="salary" name="salary"
+             placeholder="e.g. $120,000" />
+    </div>
+
+    <div class="field-group">
+      <label for="pronouns">Pronouns</label>
+      <input type="text" id="pronouns" name="pronouns"
+             placeholder="e.g. He/Him" />
+    </div>
+
+    <div class="field-group">
+      <label for="phone">Phone (backup)</label>
+      <input type="tel" id="phone" name="phone"
+             placeholder="e.g. 555-867-5309" />
+    </div>
+
+    <div class="section-label">Demographic / EEOC</div>
+    <p class="section-hint">These match the dropdown questions most applications ask. Topoff fuzzy-matches your answer to whatever options the site uses.</p>
+
+    <div class="field-group">
+      <label for="disability">Disability Status</label>
+      <select id="disability" name="disability">
+        <option value="">— Select —</option>
+        <option value="No, I don't have a disability">No, I don't have a disability</option>
+        <option value="Yes, I have a disability">Yes, I have a disability</option>
+        <option value="I don't wish to answer">I don't wish to answer</option>
+      </select>
+    </div>
+
+    <div class="field-group">
+      <label for="veteran">Veteran Status</label>
+      <select id="veteran" name="veteran">
+        <option value="">— Select —</option>
+        <option value="I am not a protected veteran">I am not a protected veteran</option>
+        <option value="I am a protected veteran">I am a protected veteran</option>
+        <option value="I don't wish to answer">I don't wish to answer</option>
+      </select>
+    </div>
+
+    <div class="field-group">
+      <label for="ethnicity">Ethnicity / Race</label>
+      <select id="ethnicity" name="ethnicity">
+        <option value="">— Select —</option>
+        <option value="Decline to self identify">Decline to self identify</option>
+        <option value="Hispanic or Latino">Hispanic or Latino</option>
+        <option value="White (Not Hispanic or Latino)">White (Not Hispanic or Latino)</option>
+        <option value="Black or African American">Black or African American</option>
+        <option value="Asian">Asian</option>
+        <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
+        <option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander</option>
+        <option value="Two or more races">Two or more races</option>
+      </select>
+    </div>
+
+    <div class="field-group">
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender">
+        <option value="">— Select —</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Non-binary">Non-binary</option>
+        <option value="I don't wish to answer">I don't wish to answer</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn-save">Save Profile</button>
+    <p class="save-status" id="saveStatus"></p>
+
+  </form>
+
+  <div class="footer">
+    All data stored locally. Never sent anywhere. &nbsp;·&nbsp; MIT License © 2026 Alex Carrick
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
